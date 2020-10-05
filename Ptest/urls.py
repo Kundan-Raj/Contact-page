@@ -21,4 +21,3 @@ urlpatterns = [
     path('test1/',include('test1.urls')),
 ]
 
-]
