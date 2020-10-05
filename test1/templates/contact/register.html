@@ -4,16 +4,17 @@
 <body>
 
 <h1>Contact Form </h1>
-
+{% block content %}
 <form action="" method="POST" id="user_form">
 {% csrf_token %}
 {{ form.as_p }}
 <input type="submit" name="submit" value="Submit"/>
 </form>
+{% endblock content %}
     
-{% block javascript %}
+{%block javascripts %}
 <script>
-    $("#user_form").focusout(function (e) {
+ /*   $("#user_form").focusout(function (e) {
         e.preventDefault();
         // get the nickname
         $.ajax({
@@ -24,22 +25,17 @@
                    content:$('#content').val(),
                    phone:$('#phone').val(),
                   },
-            success: function (response) {
+            success: function () {
                 // if not valid user, alert the user
-                if(!response["valid"]){
-                    alert("You cannot create a friend with same nick name");
-                    var nickName = $("#id_nick_name");
-                    nickName.val("")
-                    nickName.focus()
-                }
+                alert("submitted");
+                  
             },
-            error: function (response) {
-                console.log(response)
-            }
+           
+            
         })
-    })
+    }) */
 </script>
-{% endblock javascript %}
-    
+
+    {% endblock javascripts %}
 </body>
 </html>
