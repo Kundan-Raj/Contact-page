@@ -5,10 +5,41 @@
 
 <h1>Contact Form </h1>
 
-<form action="" method="POST">
+<form action="" method="POST" id="user_form">
 {% csrf_token %}
 {{ form.as_p }}
-<input type="submit" value="Submit"/>
+<input type="submit" name="submit" value="Submit"/>
 </form>
+    
+{% block javascript %}
+<script>
+    $("#user_form").focusout(function (e) {
+        e.preventDefault();
+        // get the nickname
+        $.ajax({
+            type: 'POST',
+            url: "/user/create/",
+            data: {name:$('#name').val(),
+                   email:$('#email').val(),
+                   content:$('#content').val(),
+                   phone:$('#phone').val(),
+                  },
+            success: function (response) {
+                // if not valid user, alert the user
+                if(!response["valid"]){
+                    alert("You cannot create a friend with same nick name");
+                    var nickName = $("#id_nick_name");
+                    nickName.val("")
+                    nickName.focus()
+                }
+            },
+            error: function (response) {
+                console.log(response)
+            }
+        })
+    })
+</script>
+{% endblock javascript %}
+    
 </body>
 </html>
