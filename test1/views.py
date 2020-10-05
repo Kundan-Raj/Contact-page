@@ -9,16 +9,22 @@ def indexView(request):
     return render(request,'home.html')
 
 
+@require_POST
 def registerView(request):
     name=''
     email=''
     comment=''
-
-    form= ContactForm(request.POST or None)
-    if form.is_valid():
-        name= form.cleaned_data.get("name")
-        email= form.cleaned_data.get("email")
-        comment=form.cleaned_data.get("comment")
+    if request.method == 'POST':
+        form= ContactForm(request.POST or None)
+        if form.is_valid():
+            user = User(is_active=False)
+            name= form.cleaned_data.get("name")
+            email= form.cleaned_data.get("email")
+            comment=form.cleaned_data.get("comment")
+            user.save()
+            
+    else:
+        form = ContactForm()
 
       #  if request.user.is_authenticated():
       #      subject= str(request.user) + "'s Comment"
@@ -30,11 +36,11 @@ def registerView(request):
        # send_mail(subject, comment, 'dlhylton@gmail.com', [email])
 
 
-        context= {'form': form}
+    context= {'form': form}
 
-        return render(request, 'contact/register.html', context)
+    return render(request, 'contact/register.html', context)
 
-    else:
-        context= {'form': form}
-        return render(request, 'contact/register.html', context)
+   # else:
+    #    context= {'form': form}
+     #   return render(request, 'contact/register.html', context)
 
