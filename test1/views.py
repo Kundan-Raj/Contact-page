@@ -13,7 +13,8 @@ from rest_framework.decorators import api_view
 
 # Create your views here.
 def indexView(request):
-    return render(request,'home.html')
+    contactlist = Contactdb.objects.all()
+    return render(request,'home.html',{'contactlist':contactlist})
 
 
 def registerView(request):

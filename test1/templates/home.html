@@ -34,7 +34,6 @@
 
     
 <h2>Contacted Users</h2>
-    <!--
 <div class="container-fluid">
     <table class="table table-striped table-sm" id="my_friends">
         <thead>
@@ -46,19 +45,19 @@
             </tr>
         </thead>
         <tbody>
-        {% for clist in contactlist %}
+        {% for list in contactlist %}
         <tr>
-            <td>{{clist.name}}</td>
-            <td>{{clist.email}}</td>
-            <td>{{clist.phone}}</td>
-            <td>{{clist.description}}</td>
+            <td>{{list.name}}</td>
+            <td>{{list.email}}</td>
+            <td>{{list.phone}}</td>
+            <td>{{list.comment}}</td>
         </tr>
         {% endfor %}
         </tbody>
     </table>
 
 </div>
--->
+
 
     
 </body>
