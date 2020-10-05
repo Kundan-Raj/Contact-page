@@ -29,6 +29,12 @@
   </ul>
   {% endblock %}
 </nav>
+    <h2>Contacted Users</h2>
+        {% for clist in contactlist %}
+        <ul>
+             <li>{{contact.text}}</li> 
+        </ul>
+        {% endfor %}
     
 </body>
 </html>

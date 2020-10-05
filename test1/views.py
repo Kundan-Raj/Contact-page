@@ -4,43 +4,24 @@ from django.views.decorators.http import require_POST
 from .forms import ContactForm
 from django.core.mail import send_mail
 
+from .models import Contactdb
+
 # Create your views here.
 def indexView(request):
-    return render(request,'home.html')
+    contactlist = Contactdb.objects.order_by('id')
+    context = {'contactlist':contactlist}
+    return render(request,'home.html',context)
 
 
-@require_POST
 def registerView(request):
-    name=''
-    email=''
-    comment=''
-    if request.method == 'POST':
-        form= ContactForm(request.POST or None)
-        if form.is_valid():
-            user = User(is_active=False)
-            name= form.cleaned_data.get("name")
-            email= form.cleaned_data.get("email")
-            comment=form.cleaned_data.get("comment")
-            user.save()
-            
-    else:
-        form = ContactForm()
 
-      #  if request.user.is_authenticated():
-      #      subject= str(request.user) + "'s Comment"
-        #else:
-         #   subject= "A Visitor's Comment"
-
-
-       # comment= name + " with the email, " + email + ", sent the following message:\n\n" + comment;
-       # send_mail(subject, comment, 'dlhylton@gmail.com', [email])
-
+    form= ContactForm(request.POST or None)
+    if form.is_valid():
+        name = form.cleaned_data['name']
+        form.save()
 
     context= {'form': form}
 
     return render(request, 'contact/register.html', context)
 
-   # else:
-    #    context= {'form': form}
-     #   return render(request, 'contact/register.html', context)
 
