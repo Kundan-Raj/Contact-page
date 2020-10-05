@@ -6,7 +6,7 @@ class ContactForm(forms.ModelForm):
     #phone = PhoneField(blank=True, help_text='Contact phone number')
     class Meta:
         model= Contactdb
-        fields= ["name","email","phone","comment"]
+        fields= ("__all__")
 
 
 

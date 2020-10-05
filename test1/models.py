@@ -1,11 +1,13 @@
 from django.db import models
 
-
 class Contactdb(models.Model):
     name= models.CharField(max_length=100)
     email= models.EmailField()
-    phone= models.CharField(max_length=100)
-    comment= models.CharField(max_length=500)
+    phone= models.CharField(max_length=100, blank = True, null = True)
+    description= models.CharField(max_length=500, null = False)
+    
+    def __str__(self):
+        return self.name
     
    # class ContactForm(forms.Form):
     #name= forms.CharField(min_length=3, max_length=100, label="Name")

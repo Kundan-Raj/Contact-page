@@ -27,14 +27,33 @@
       <a class="nav-link" href="{% url 'register_url' %}">Contact Us</a>
     </li>
   </ul>
-  {% endblock %}
 </nav>
-    <h2>Contacted Users</h2>
+    
+<h2>Contacted Users</h2>
+<div class="container-fluid">
+    <table class="table table-striped table-sm" id="my_friends">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
         {% for clist in contactlist %}
-        <ul>
-             <li>{{contact.text}}</li> 
-        </ul>
+        <tr>
+            <td>{{clist.name}}</td>
+            <td>{{clist.email}}</td>
+            <td>{{clist.phone}}</td>
+            <td>{{clist.description}}</td>
+        </tr>
         {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock content %}
     
 </body>
 </html>
