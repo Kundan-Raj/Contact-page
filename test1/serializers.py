@@ -1,4 +1,4 @@
-from rest-framework import serializers
+from rest_framework import serializers
 from test1.models import Contactdb
 
 class contactserializer(serializers.ModelSerializer):
