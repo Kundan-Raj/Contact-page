@@ -1,3 +1,0 @@
-python-3.8.1
-# Contact-page
-created basic contact page using Django
