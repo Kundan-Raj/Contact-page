@@ -1,41 +1,52 @@
 
 <html>
-
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
 <body>
 
 <h1>Contact Form </h1>
-{% block content %}
-<form action="" method="POST" id="user_form">
+
+<form method="POST" id="form1">
 {% csrf_token %}
 {{ form.as_p }}
-<input type="submit" name="submit" value="Submit"/>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-{% endblock content %}
+    <script>
     
-{%block javascripts %}
-<script>
- /*   $("#user_form").focusout(function (e) {
+    const form = document.getElementById('form1');
+    form.addEventListener("submit",submitHandler);
+    
+    function submitHandler(e){
+        console.log('on');
         e.preventDefault();
-        // get the nickname
         $.ajax({
             type: 'POST',
-            url: "/user/create/",
-            data: {name:$('#name').val(),
-                   email:$('#email').val(),
-                   content:$('#content').val(),
-                   phone:$('#phone').val(),
-                  },
-            success: function () {
-                // if not valid user, alert the user
-                alert("submitted");
-                  
-            },
-           
-            
+            url: '{% url 'register_url' %}',
+            data: $("#form1").serialize(),
+            dataType: 'json',
+            success: successHandler 
         })
-    }) */
+    }
+    
+    function successHandler(data) {
+        console.log(form);
+        if (data.msg === 'Success') {
+            document.getElementById('form1').reset();
+            alert('submitted');
+        }
+        else {
+            alert('failed');
+        }
+    }
 </script>
+    
 
-    {% endblock javascripts %}
+
+
+
 </body>
 </html>
+
+
+

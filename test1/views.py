@@ -1,6 +1,5 @@
 from django.shortcuts import render,redirect
 from django.views.decorators.http import require_POST
-from django.http import JsonResponse
 from django.core import serializers
 from .forms import ContactForm
 from .models import Contactdb
@@ -19,11 +18,16 @@ def indexView(request):
 
 def registerView(request):
     form= ContactForm(request.POST or None)
-    if form.is_valid():
-        name = form.cleaned_data['name']
-        form.save()
-    context= {'form': form}
-    return render(request, 'contact/register.html',context)
+    if request.is_ajax():
+        #name = form.cleaned_data['name']
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return JsonResponse({
+            'msg': 'Success'
+        })
+    
+    return render(request,'contact/register.html',{'form': form})
     
 @api_view(['GET','POST'])  #decorator responsible for get and post request
 def contact_list(request):  #view fn for getting and posting data
