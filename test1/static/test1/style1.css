@@ -1,0 +1,11 @@
+.page-header{
+    background-color: cornsilk;
+    color: blue;
+    margin-top: 20px;
+}
+.content container{
+    background-color: antiquewhite;
+}
+#cname{
+    color: red;
+}

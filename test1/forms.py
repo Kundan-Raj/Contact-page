@@ -5,8 +5,6 @@ from .models import Contactdb
 
 class ContactForm(forms.ModelForm):
     comment= forms.CharField(min_length=20, label='Description',widget=forms.Textarea(attrs={'placeholder': 'Enter your comment here'}))
-    #name = models.CharField(max_length=100)
-    #phone = forms.PhoneField(blank=True, help_text='Contact phone number')
     name = forms.CharField(max_length=100, min_length=3)
     #phone = forms.PhoneField(max_length=10)
     
