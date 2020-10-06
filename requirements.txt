@@ -1,26 +1,11 @@
-<<<<<<< HEAD
-asgiref==3.2.10
-dj-database-url==0.5.0
-Django==3.1.2
-django-cors-headers==3.5.0
-django-phone-field==1.8.1
-djangorestframework==3.12.1
-gunicorn==20.0.4
-pytz==2020.1
-sqlparse==0.3.1
-whitenoise==5.2.0
-psycopg2==2.7.2
-=======
-asgiref==3.2.10
-dj-database-url==0.5.0
-Django==3.1.2
-django-cors-headers==3.5.0
-django-phone-field==1.8.1
-djangorestframework==3.12.1
-gunicorn==20.0.4
-pytz==2020.1
-sqlparse==0.3.1
-whitenoise==5.2.0
-psycopg2==2.7.2
-setuptools==0.7.3
->>>>>>> f4394beb8f3cbff3a15d78487e082be66a831f5c
+Django==1.6.2
+argparse==1.2.1
+setuptools==0.7.3 
+dj-database-url==0.3.0
+dj-static==0.0.5
+django-toolbelt==0.0.1
+gunicorn==18.0
+psycopg2==2.5.2
+pystache==0.5.3
+static==1.0.2
+wsgiref==0.1.2
