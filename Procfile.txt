@@ -1,1 +1,1 @@
-web: gunicorn Ptest.wsgi
+web: gunicorn djangoherokuapp.wsgi --log-file -
