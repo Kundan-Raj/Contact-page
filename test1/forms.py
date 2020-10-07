@@ -2,7 +2,7 @@ from django import forms
 from .models import Contactdb
 
 class ContactForm(forms.ModelForm):
-    comment= forms.CharField(label='Description',widget=forms.Textarea(attrs={'placeholder': 'Enter your comment here'}))
+    comment= forms.CharField(label='Description',min_length=20, widget=forms.Textarea(attrs={'placeholder': 'Enter your comment here'}))
     name = forms.CharField(max_length=100, min_length=3)
     
     
