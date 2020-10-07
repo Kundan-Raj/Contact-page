@@ -123,10 +123,10 @@ USE_TZ = True
 #Static files (style1, bs, styles)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 PROJECT_DIR   =   os.path.join(os.path.abspath(__file__))
-STATIC_ROOT  =   os.path.join(PROJECT_DIR, 'staticfiles')
-STATIC_URL = '/static/'
+STATIC_ROOT  =   os.path.join(PROJECT_DIR, '/test1/staticfiles')
+STATIC_URL = '/test1/static/'
 
 # Extra lookup directories for collectstatic to find static files
-STATICFILES_DIRS = (os.path.join(PROJECT_DIR, 'static'),)
+STATICFILES_DIRS = (os.path.join(PROJECT_DIR, '/test1/static'),)
 #  Add configuration for static files storage using whitenoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
