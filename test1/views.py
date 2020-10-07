@@ -27,6 +27,7 @@ def registerView(request):
             'msg': 'Success'
         })
     
+    
     return render(request,'contact/register.html',{'form': form})
     
 @api_view(['GET','POST'])  #decorator responsible for get and post request
@@ -74,27 +75,3 @@ def contact_detail(request, pk):
     elif request.method == 'DELETE':
         contacts.delete()
         return JsonResponse({'message':'Country was deleted successfully!'}, status=status.HTTP_204_NO_CONTENT)
-        
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    

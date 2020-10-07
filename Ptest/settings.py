@@ -25,7 +25,7 @@ SECRET_KEY = '-kt@sk$7+f5d%5#q5w-$+t=5_n!s86erlm1_r9qz#*j3-zv)-^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['contactll.herokuapp.com']
+ALLOWED_HOSTS = ['contactll.herokuapp.com','*']
 
 
 # Application definition
@@ -122,11 +122,11 @@ USE_TZ = True
 
 #Static files (style1, bs, styles)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-BASE_DIR   =   os.path.join(os.path.abspath(__file__))
-STATIC_ROOT  =   os.path.join(BASE_DIR, 'staticfiles')
+PROJECT_DIR   =   os.path.join(os.path.abspath(__file__))
+STATIC_ROOT  =   os.path.join(PROJECT_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 # Extra lookup directories for collectstatic to find static files
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATICFILES_DIRS = (os.path.join(PROJECT_DIR, 'static'),)
 #  Add configuration for static files storage using whitenoise
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
