@@ -3,7 +3,27 @@
     margin-top: 40px;
     
 }
+        #h{
+            margin-left: 40px;
+            color: rebeccapurple;
+            font-weight: bolder;
+            align-content: center;
+        }
+        #hh{
+            color: blue;
+            font-weight: bold;
+        }
 
-.content container{
-    background-color: antiquewhite;
-}
+        #m{
+            margin-left: auto;
+            margin-right: auto;
+            position: center;
+        }
+        .col-sm-4{
+            position: center; 
+            margin-left: 390px;
+        }
+      #bt{
+          margin-left: 40px;
+          margin-right: 80px;
+      }
